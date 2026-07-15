@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;750&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Base styling enhancements */
+body {
+  font-family: var(--font-sans);
+  background-color: #F3F4F6; /* Sleek light gray background */
+  color: #111827;
+}
+
+/* Custom scrollbars for the sheet music container */
+.scrollbar-thin::-webkit-scrollbar {
+  height: 8px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 99px;
+  border: 2px solid transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background-color: #94a3b8;
+}
+
+/* Print Stylesheet for Sheet Music publishing */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+    padding: 0 !important;
+    margin: 10mm 15mm 10mm 15mm !important;
+  }
+
+  /* Wrap the horizontal score naturally on the printed A4/Letter page */
+  #sheet-music-scroll-container {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    overflow: visible !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    gap: 16px 0 !important;
+    background: transparent !important;
+  }
+
+  svg {
+    border-right: none !important;
+    border-bottom: 1.5px solid #94a3b8 !important;
+    page-break-inside: avoid !important;
+    margin-bottom: 10px !important;
+    background: transparent !important;
+  }
+
+  /* Hide UI elements from printed page */
+  .print\:hidden,
+  button,
+  select,
+  input,
+  header,
+  footer {
+    display: none !important;
+  }
+}

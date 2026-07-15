@@ -1,0 +1,6 @@
+{
+  "name": "Editor de Partituras",
+  "description": "Um aplicativo super leve e responsivo de notação musical para celular e computador.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
